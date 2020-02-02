@@ -1,7 +1,25 @@
 {
   "login": {
     "login": "iniciar sesión",
-    "username": "nombre de usuario",
-    "password": "contraseña"
+    "username": {
+      "title": "nombre de usuario",
+      "required": "el nombre de usuario es obligatorio"
+    },
+    "password": {
+      "title": "contraseña",
+      "required": "la contraseña es obligatoria"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "El usuario o contraseña son incorrectos"
+      }
+    }
+  },
+  "messages": {
+    "error": {
+      "title": "Error:",
+      "description": "Se ha producido un error. Intentelo de nuevo más tarde"
+    }
   }
 }

@@ -1,7 +1,25 @@
 {
   "login": {
     "login": "login",
-    "username": "Username",
-    "password": "password"
+    "username": {
+      "title": "username",
+      "required": "username is required"
+    },
+    "password": {
+      "title": "password",
+      "required": "password is required"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "The username or password is incorrect"
+      }
+    }
+  },
+  "messages": {
+    "error": {
+      "title": "Error:",
+      "description": "An error has occurred. Try it again later"
+    }
   }
 }

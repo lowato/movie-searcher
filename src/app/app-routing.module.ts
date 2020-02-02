@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GuardsLoginService, GuardsCheckIsLoginService } from './services/guards/guards.service';
+import { GuardService } from './services/guards/guard.service';
 import { SearcherModule } from './pages/searcher/searcher.module';
 import { LoginModule } from './pages/login/login.module';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [GuardsCheckIsLoginService],
+    canActivate: [GuardService],
     loadChildren: () => SearcherModule
   },
   {
     path: 'login',
-    canActivate: [GuardsLoginService],
     loadChildren: () => LoginModule
   }
 ];
