@@ -1,1 +1,24 @@
 <app-header></app-header>
+<form [formGroup]="searchLogin" class="form-sign-in" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-md-6 mb-2">
+      <label for="typesSearch">Buscar por:</label>
+      <p-selectButton class="input" id="typesSearch" formControlName="typesSearch" [options]="typesSearch"></p-selectButton>
+    </div>
+    <div class="col-md-6 mb-2">
+      <label for="inputSearch">Buscar:</label>
+      <input class="input" id="inputSearch" formControlName="inputSearch" type="text" size="30" pInputText>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-2">
+      <label for="selectedType">Tipo:</label>
+      <p-selectButton  class="input" id="selectedType" [options]="optionsSelected" formControlName="selectedType"></p-selectButton>
+    </div>
+    <div class="col-md-6 mb-2">
+      <label for="year">Año:</label>
+      <input class="input" id="year" formControlName="year" appOnlyDigi type="text" size="30" maxlength="4" pInputText>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Buscar</button>
+</form>

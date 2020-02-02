@@ -9,16 +9,23 @@ import { ButtonModule } from 'primeng/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '../../../../node_modules/@angular/forms';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ListboxModule } from 'primeng/listbox';
+import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive';
 
 @NgModule({
   declarations: [
     SearcherComponent,
     SearcherLayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    OnlyDigiDirective
   ],
   imports: [
     CommonModule,
     SearcherRoutingModule,
+    ReactiveFormsModule,
     ButtonModule,
     TranslateModule.forChild({
       loader: {
@@ -27,6 +34,9 @@ import { HttpClient } from '@angular/common/http';
         deps: [HttpClient]
       }
     }),
+    InputTextModule,
+    SelectButtonModule,
+    ListboxModule
   ]
 })
 export class SearcherModule { }

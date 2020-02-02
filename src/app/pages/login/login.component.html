@@ -9,8 +9,8 @@
       <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'login.login' | translate | upperCaseFirstLetter }}</h1>
       <div class="content">
         <div class="ui-float-label">
-            <input id="float-input" formControlName="username" type="text" size="30" pInputText>
-            <label for="float-input">{{ 'login.username.title' | translate | upperCaseFirstLetter }}</label>
+            <input id="username" formControlName="username" type="text" size="30" pInputText>
+            <label for="username">{{ 'login.username.title' | translate | upperCaseFirstLetter }}</label>
         </div>
         <div *ngIf="submitted && f.username.errors">
           <div *ngIf="f.username.errors.required" class="errorMessage">{{ 'login.username.required' | translate | upperCaseFirstLetter }}</div>
@@ -18,8 +18,8 @@
       </div>
       <div class="content">
         <div  class="ui-float-label">
-          <input type="password" formControlName="password" for="float-input-pwd" size="30" pInputText/>
-          <label for="float-input-pwd">{{ 'login.password.title' | translate | upperCaseFirstLetter }}</label>
+          <input type="password" formControlName="password" for="pwd" size="30" pInputText/>
+          <label for="pwd">{{ 'login.password.title' | translate | upperCaseFirstLetter }}</label>
         </div>
         <div *ngIf="submitted && f.password.errors">
           <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'login.password.required' | translate | upperCaseFirstLetter }}</div>
