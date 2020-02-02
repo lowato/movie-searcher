@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<form class="form-sign-in">
+  <div class="text-center">
+    <img class="rounded" src="assets/images/logo.png" alt="" width="200">
+  </div>
+  <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'login.login' | translate | upperCaseFirstLetter }}</h1>
+  <div class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText>
+      <label for="float-input">{{ 'login.username' | translate | upperCaseFirstLetter }}</label>
+  </div>
+  <div class="ui-float-label">
+    <input type="password" for="float-input-pwd" size="30" pInputText/>
+    <label for="float-input-pwd">{{ 'login.password' | translate | upperCaseFirstLetter }}</label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'login.login' | translate | upperCaseFirstLetter }}</button>
+</form>

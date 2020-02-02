@@ -1,3 +1,7 @@
 {
-  "title": "Search for Movies"
+  "login": {
+    "login": "login",
+    "username": "Username",
+    "password": "password"
+  }
 }
