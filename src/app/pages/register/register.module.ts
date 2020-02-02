@@ -41,7 +41,7 @@ import { LoadingComponent } from '../../components/loading/loading.component';
     }),
     ProgressSpinnerModule,
     MessagesModule,
-    MessageModule,
+    MessageModule
   ]
 })
 export class RegisterModule { }

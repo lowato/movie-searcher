@@ -33,6 +33,7 @@
       }
     }
   },
+  "logout": "Salir",
   "messages": {
     "error": {
       "title": "Error:",

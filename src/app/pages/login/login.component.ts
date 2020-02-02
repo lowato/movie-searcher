@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
         user => {
           this.storageService.setSessionStorage('user', user);
           this.router.navigateByUrl('/searcher');
-          this.loadingFull = false;
         },
         error => {
           const msgTitle = error === 401 ? 'login.messages.error.title' : 'messages.error.title';

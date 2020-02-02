@@ -1,32 +1,35 @@
-<ng-container *ngIf="!loadingFull; else loading">
-  <p-messages [(value)]="message"></p-messages>
-  <form [formGroup]="loginForm" class="form-sign-in" (ngSubmit)="onSubmit()">
-    <div class="text-center">
-      <img class="rounded" src="assets/images/logo.png" alt="" width="200">
-    </div>
-    <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'login.login' | translate | upperCaseFirstLetter }}</h1>
-    <div class="content">
-      <div class="ui-float-label">
-          <input id="float-input" formControlName="username" type="text" size="30" pInputText>
-          <label for="float-input">{{ 'login.username.title' | translate | upperCaseFirstLetter }}</label>
+
+<main class="main">
+  <ng-container *ngIf="!loadingFull; else loading">
+    <p-messages [(value)]="message"></p-messages>
+    <form [formGroup]="loginForm" class="form-sign-in" (ngSubmit)="onSubmit()">
+      <div class="text-center">
+        <img class="rounded" src="assets/images/logo.png" alt="" width="200">
       </div>
-      <div *ngIf="submitted && f.username.errors">
-        <div *ngIf="f.username.errors.required" class="errorMessage">{{ 'login.username.required' | translate | upperCaseFirstLetter }}</div>
+      <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'login.login' | translate | upperCaseFirstLetter }}</h1>
+      <div class="content">
+        <div class="ui-float-label">
+            <input id="float-input" formControlName="username" type="text" size="30" pInputText>
+            <label for="float-input">{{ 'login.username.title' | translate | upperCaseFirstLetter }}</label>
+        </div>
+        <div *ngIf="submitted && f.username.errors">
+          <div *ngIf="f.username.errors.required" class="errorMessage">{{ 'login.username.required' | translate | upperCaseFirstLetter }}</div>
+        </div>
       </div>
-    </div>
-    <div class="content">
-      <div  class="ui-float-label">
-        <input type="password" formControlName="password" for="float-input-pwd" size="30" pInputText/>
-        <label for="float-input-pwd">{{ 'login.password.title' | translate | upperCaseFirstLetter }}</label>
+      <div class="content">
+        <div  class="ui-float-label">
+          <input type="password" formControlName="password" for="float-input-pwd" size="30" pInputText/>
+          <label for="float-input-pwd">{{ 'login.password.title' | translate | upperCaseFirstLetter }}</label>
+        </div>
+        <div *ngIf="submitted && f.password.errors">
+          <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'login.password.required' | translate | upperCaseFirstLetter }}</div>
+        </div>
       </div>
-      <div *ngIf="submitted && f.password.errors">
-        <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'login.password.required' | translate | upperCaseFirstLetter }}</div>
-      </div>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'login.login' | translate | upperCaseFirstLetter }}</button>
-    <a routerLink="/register" class="btn btn-link">{{ 'register.register' | translate | upperCaseFirstLetter }}</a>
-  </form>
-</ng-container>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'login.login' | translate | upperCaseFirstLetter }}</button>
+      <a routerLink="/register" class="btn btn-link">{{ 'register.register' | translate | upperCaseFirstLetter }}</a>
+    </form>
+  </ng-container>
+</main>
 
 <ng-template #loading>
   <app-loading></app-loading>
