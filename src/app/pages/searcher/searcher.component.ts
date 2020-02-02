@@ -50,11 +50,10 @@ export class SearcherComponent implements OnInit {
       selectedType: [''],
       year: ['', Validators.maxLength(4)],
     });
-    this.loadingFull = false;
   }
 
   onSubmit() {
-
+    console.log('formulario: ', this.searchLogin.value);
   }
 
 }
