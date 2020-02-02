@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Message } from 'primeng//api';
 import { TranslateService } from '@ngx-translate/core';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private router: Router,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -47,7 +49,8 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         user => {
-          this.router.navigate(['/']);
+          this.storageService.setSessionStorage('user', user);
+          this.router.navigateByUrl('/searcher');
           this.loadingFull = false;
         },
         error => {
@@ -56,6 +59,7 @@ export class LoginComponent implements OnInit {
           this.message = [];
           this.message.push({severity:'error', summary: this.translateService.instant(msgTitle), detail: this.translateService.instant(msgDescription)});
           this.loadingFull = false;
-        });
+        }
+      );
     }
 }

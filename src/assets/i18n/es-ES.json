@@ -16,6 +16,23 @@
       }
     }
   },
+  "register": {
+    "register": "Registrate",
+    "username": {
+      "title": "nombre de usuario",
+      "required": "el nombre de usuario es obligatorio"
+    },
+    "password": {
+      "title": "contraseña",
+      "required": "la contraseña es obligatoria"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "El nombre de usuario {{ username }} ya está en uso"
+      }
+    }
+  },
   "messages": {
     "error": {
       "title": "Error:",

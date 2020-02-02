@@ -7,7 +7,10 @@ import { RegisterModule } from './pages/register/register.module';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', redirectTo: 'searcher', pathMatch: 'full'
+},
+  {
+    path: 'searcher',
     canActivate: [GuardService],
     loadChildren: () => SearcherModule
   },

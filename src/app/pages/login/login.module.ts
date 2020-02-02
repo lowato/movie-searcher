@@ -10,7 +10,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UpperCaseFirstLetterPipe } from '../../pipes/upper-case-first-letter.pipe';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';

@@ -34,7 +34,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       const user = body
 
       if (users.find(x => x.username === user.username)) {
-        return error('Username "' + user.username + '" is already taken')
+        return error(401);
       }
 
       user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;

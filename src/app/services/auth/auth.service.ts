@@ -20,7 +20,7 @@ export class AuthenticationService {
       private storageService: StorageService,
       private router: Router
     ) {
-      this.loginUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+      this.loginUserSubject = new BehaviorSubject<User>(this.storageService.getSessionStorage('user'));
       this.loginUser = this.loginUserSubject.asObservable();
     }
 
@@ -31,14 +31,20 @@ export class AuthenticationService {
     login(username, password) {
       return this.http.post<any>(environment.userAuthenticate, { username, password })
         .pipe(map(user => {
-          this.storageService.setSessionStorage('user', user);
+          return user;
+        }));
+    }
+
+    register(username, password) {
+      return this.http.post<any>(environment.userRegister, { username, password })
+        .pipe(map(user => {
           return user;
         }));
     }
 
     logout() {
       this.storageService.finishSessionStorage('user');
-      this.router.navigate(['/login']);
+      this.router.navigateByUrl('/login');
     }
 
 }

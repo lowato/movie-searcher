@@ -16,6 +16,23 @@
       }
     }
   },
+  "register": {
+    "register": "Registrate",
+    "username": {
+      "title": "username",
+      "required": "username is required"
+    },
+    "password": {
+      "title": "password",
+      "required": "password is required"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "'Username {{ username }} is already taken'"
+      }
+    }
+  },
   "messages": {
     "error": {
       "title": "Error:",
