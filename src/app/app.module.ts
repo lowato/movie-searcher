@@ -7,22 +7,16 @@ import { AppComponent } from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
-import { SearcherLayoutComponent } from './layout/searcher-layout/searcher-layout.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SearcherComponent } from './pages/searcher/searcher.component';
+import { RouterModule } from '../../node_modules/@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginLayoutComponent,
-    LoginComponent,
-    SearcherLayoutComponent,
-    SearcherComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
       TranslateModule.forRoot({
         loader: {

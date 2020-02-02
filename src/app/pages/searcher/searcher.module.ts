@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { SearcherRoutingModule } from './searcher-routing.module';
 import { SearcherComponent } from './searcher.component';
+import { SearcherLayoutComponent } from '../../layout/searcher-layout/searcher-layout.component';
 
 @NgModule({
-  imports: [
-    CommonModule
+  declarations: [
+    SearcherComponent,
+    SearcherLayoutComponent
   ],
-  declarations: [SearcherComponent]
+  imports: [
+    CommonModule,
+    SearcherRoutingModule
+  ]
 })
 export class SearcherModule { }

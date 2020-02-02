@@ -1,27 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GuardsLoginService, GuardsCheckIsLoginService } from './services/guards/guards.service';
-import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SearcherLayoutComponent } from './layout/searcher-layout/searcher-layout.component';
-import { SearcherComponent } from './pages/searcher/searcher.component';
+import { SearcherModule } from './pages/searcher/searcher.module';
+import { LoginModule } from './pages/login/login.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: SearcherLayoutComponent,
     canActivate: [GuardsCheckIsLoginService],
-    children: [
-      { path: '', component: SearcherComponent, outlet: 'searcher' }
-    ]
+    loadChildren: () => SearcherModule
   },
   {
     path: 'login',
     canActivate: [GuardsLoginService],
-    component: LoginLayoutComponent,
-    children: [
-      { path: '', component: LoginComponent, outlet: 'login' }
-    ]
+    loadChildren: () => LoginModule
   }
 ];
 
