@@ -7,7 +7,8 @@ export const environment = {
   apiEndpoint: '',
   user: '/user',
   userRegister: '/user/register',
-  userAuthenticate: '/user/authenticate'
+  userAuthenticate: '/user/authenticate',
+  omdbApi: 'http://www.omdbapi.com'
 };
 
 /*

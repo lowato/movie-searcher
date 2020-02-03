@@ -6,3 +6,8 @@ form {
 label, .input {
   display: flex;
 }
+
+app-loading {
+  display: block;
+  text-align: center;
+}

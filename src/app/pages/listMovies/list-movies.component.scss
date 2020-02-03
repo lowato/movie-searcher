@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  margin: 50px;
+}
+
+img {
+  max-width: 150px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.ui-g-12.box {
+  border: 1px solid #007ad9;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 10px;
+}

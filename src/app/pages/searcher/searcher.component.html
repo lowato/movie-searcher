@@ -1,5 +1,5 @@
 <app-header></app-header>
-<form [formGroup]="searchLogin" class="form-sign-in" (ngSubmit)="onSubmit()">
+<form [formGroup]="searchForm" class="form-sign-in" (ngSubmit)="onSubmit()">
   <div class="form-row">
     <div class="col-md-6 mb-2">
       <label for="typesSearch">Buscar por:</label>
@@ -22,3 +22,12 @@
   </div>
   <button class="btn btn-primary" type="submit">Buscar</button>
 </form>
+
+<ng-container *ngIf="!loadingSearch; else loading">
+  <app-list-movies *ngIf="listMovies" [listMovies]="listMovies"></app-list-movies>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+

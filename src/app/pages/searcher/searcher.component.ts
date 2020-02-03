@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../services/auth/auth.service';
-import { Router } from '@angular/router';
 import { Message, SelectItem } from 'primeng//api';
-import { TranslateService } from '@ngx-translate/core';
-import { StorageService } from '../../services/storage/storage.service';
 import { Types } from '../../models/types.enum';
+import { QueryParams } from '../../models/query-params.model';
+import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
+import { ResponseBySearch } from '../../models/response-by-search.model';
 
 @Component({
   selector: 'app-searcher',
@@ -14,19 +13,17 @@ import { Types } from '../../models/types.enum';
 })
 export class SearcherComponent implements OnInit {
 
-  public searchLogin: FormGroup;
-  public loadingFull = true;
+  public searchForm: FormGroup;
+  public loadingSearch = false;
   public submitted = false;
   public message: Message[] = [];
   public typesSearch: SelectItem[];
   public optionsSelected: SelectItem[];
+  public listMovies: ResponseBySearch;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
-    private router: Router,
-    private translateService: TranslateService,
-    private storageService: StorageService
+    private omdbApiService: OmdbApiService
   ) { }
 
   ngOnInit() {
@@ -44,7 +41,7 @@ export class SearcherComponent implements OnInit {
       {label: 'Episodios', value: Types.EPISODE}
     ];
 
-    this.searchLogin = this.formBuilder.group({
+    this.searchForm = this.formBuilder.group({
       typesSearch: ['s', Validators.required],
       inputSearch: ['', Validators.required],
       selectedType: [''],
@@ -52,8 +49,60 @@ export class SearcherComponent implements OnInit {
     });
   }
 
+  get f() { return this.searchForm.controls; }
+
   onSubmit() {
-    console.log('formulario: ', this.searchLogin.value);
+
+    if (this.searchForm.invalid) {
+        return;
+    }
+
+    this.loadingSearch = true;
+
+    let queryParams: QueryParams = this.getQueryParams();
+
+    this.omdbApiService.search(queryParams)
+      .subscribe(
+        resp => {
+          this.listMovies = resp;
+          this.loadingSearch = false;
+        }
+      );
   }
 
+  private getQueryParams(): QueryParams {
+
+    let queryParams: QueryParams = null;
+
+    switch (this.searchForm.value.typesSearch) {
+      case 's':
+        queryParams = {
+          s: this.searchForm.value.inputSearch,
+          type: this.f.selectedType.value,
+          y: this.f.year.value,
+        }
+        break;
+
+      case 'i':
+        queryParams = {
+          i: this.searchForm.value.inputSearch,
+          type: this.f.selectedType.value,
+          y: this.f.year.value,
+        }
+        break;
+
+      case 't':
+        queryParams = {
+          t: this.searchForm.value.inputSearch,
+          type: this.f.selectedType.value,
+          y: this.f.year.value,
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    return queryParams;
+  }
 }

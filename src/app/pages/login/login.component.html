@@ -1,8 +1,8 @@
 
 <main class="main">
   <ng-container *ngIf="!loadingFull; else loading">
-    <p-messages [(value)]="message"></p-messages>
     <form [formGroup]="loginForm" class="form-sign-in" (ngSubmit)="onSubmit()">
+      <p-messages [(value)]="message"></p-messages>
       <div class="text-center">
         <img class="rounded" src="assets/images/logo.png" alt="" width="200">
       </div>

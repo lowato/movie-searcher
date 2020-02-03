@@ -14,13 +14,19 @@ import { ReactiveFormsModule } from '../../../../node_modules/@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ListboxModule } from 'primeng/listbox';
 import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive';
+import { ListMoviesComponent } from '../listMovies/list-movies.component';
+import { LoadingComponent } from '../../components/loading/loading.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { FavoritesService } from '../../services/favorites/favorites.service';
 
 @NgModule({
   declarations: [
     SearcherComponent,
     SearcherLayoutComponent,
     HeaderComponent,
-    OnlyDigiDirective
+    OnlyDigiDirective,
+    ListMoviesComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,11 @@ import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive
     }),
     InputTextModule,
     SelectButtonModule,
-    ListboxModule
+    ListboxModule,
+    ProgressSpinnerModule
+  ],
+  providers: [
+    FavoritesService
   ]
 })
 export class SearcherModule { }

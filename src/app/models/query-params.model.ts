@@ -1,6 +1,6 @@
 interface BaseQueryParams {
   type?: 'movie' | 'series' | 'episode';
-  y?: number;
+  y?: string;
   r?: 'json' | 'xml';
   callback?: string;
 }

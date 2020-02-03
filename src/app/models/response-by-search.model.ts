@@ -1,10 +1,10 @@
 export interface ResponseBySearch {
-  Search:       Search[];
+  Search:       Movie[];
   totalResults: string;
   Response:     string;
 }
 
-export interface Search {
+export interface Movie {
   Title:  string;
   Year:   string;
   imdbID: string;

@@ -19,4 +19,16 @@ export class StorageService {
     sessionStorage.removeItem(key);
   }
 
+  public setLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  public getLocalStorage(key) {
+    return key in localStorage ? JSON.parse(localStorage.getItem(key)) : [];
+  }
+
+  public removeLocalStorage(key) {
+    sessionStorage.removeItem(key);
+  }
+
 }
