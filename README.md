@@ -1,6 +1,17 @@
 # MovieSearcher
 
+<a href="http://nexus-globile.eastus.cloudapp.azure.com:8081/" rel="nofollow"><img id="Build" src="https://img.shields.io/badge/Build-OK-green.svg" alt="build"></a>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
+
+## Dependencies
+To use this package and see the documentation, you need to have instaled in your machine the follow software:
+- [Node](https://nodejs.org/es/download/) minimal version v10.x,  optimal  v12.x
+- [Angular CLI](https://github.com/angular/angular-cli). Recomented to have as global.
+
+This project is using [Angular CLI](https://github.com/angular/angular-cli).
+
+
 
 ## Development server
 
