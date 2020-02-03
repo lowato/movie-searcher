@@ -1,0 +1,19 @@
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+
+  button {
+    display: block;
+  }
+
+  img {
+    max-width: 500px;
+      margin: 0px auto;
+  }
+
+}
+
+p-progressSpinner {
+  display: block;
+  margin: 0px auto;
+}

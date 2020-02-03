@@ -15,6 +15,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { PipesModule } from '../../pipes/pipes.module';
+import { HeaderModule } from '../../components/header/header.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { PipesModule } from '../../pipes/pipes.module';
     ProgressSpinnerModule,
     MessagesModule,
     MessageModule,
-    PipesModule
+    PipesModule,
+    HeaderModule,
+    RouterModule
   ]
 })
 export class RegisterModule { }

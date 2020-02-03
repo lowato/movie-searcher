@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SearcherRoutingModule } from './searcher-routing.module';
 import { SearcherComponent } from './searcher.component';
 import { SearcherLayoutComponent } from '../../layout/searcher-layout/searcher-layout.component';
-import { HeaderComponent } from '../header/header.component';
 import { ButtonModule } from 'primeng/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -14,16 +13,17 @@ import { ReactiveFormsModule } from '../../../../node_modules/@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ListboxModule } from 'primeng/listbox';
 import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive';
-import { ListMoviesComponent } from '../listMovies/list-movies.component';
+import { ListMoviesComponent } from '../../components/listMovies/list-movies.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FavoritesService } from '../../services/favorites/favorites.service';
-import { DetailMovieComponent } from '../detailMovie/detail-movie.component';
+import { DetailMovieComponent } from '../../components/detailMovie/detail-movie.component';
+import { HeaderModule } from '../../components/header/header.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     SearcherComponent,
     SearcherLayoutComponent,
-    HeaderComponent,
     OnlyDigiDirective,
     ListMoviesComponent,
     DetailMovieComponent
@@ -43,7 +43,9 @@ import { DetailMovieComponent } from '../detailMovie/detail-movie.component';
     InputTextModule,
     SelectButtonModule,
     ListboxModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    HeaderModule,
+    RouterModule
   ],
   providers: [
     FavoritesService

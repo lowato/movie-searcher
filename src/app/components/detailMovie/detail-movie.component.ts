@@ -4,8 +4,8 @@ import { QueryParamsById } from '../../models/query-params.model';
 import { ResponseByIDOrType } from '../../models/response-by-id-or-type.model';
 import { FavoritesService } from '../../services/favorites/favorites.service';
 import { Movie } from '../../models/response-by-search.model';
-import { take } from '../../../../node_modules/rxjs/operators';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { take } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detail-movie',

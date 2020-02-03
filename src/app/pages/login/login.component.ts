@@ -2,11 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
 import { Message } from 'primeng//api';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from '../../services/storage/storage.service';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -54,8 +53,10 @@ export class LoginComponent implements OnInit, OnDestroy {
           user => {
             this.storageService.setSessionStorage('user', user);
             this.router.navigateByUrl('/searcher');
+            this.loadingFull = false;
           },
           error => {
+            // TODO: Refactor (interceptor)
             const msgTitle = error === 401 ? 'login.messages.error.title' : 'messages.error.title';
             const msgDescription = error === 401 ? 'login.messages.error.description' : 'messages.error.description';
             this.message = [];

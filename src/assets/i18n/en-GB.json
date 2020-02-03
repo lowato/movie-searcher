@@ -39,5 +39,6 @@
       "title": "Error:",
       "description": "An error has occurred. Try it again later"
     }
-  }
+  },
+  "searcher": "Searcher"
 }

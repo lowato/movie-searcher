@@ -41,7 +41,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
 
-      return ok();
+      return ok({
+        id: user.id,
+        username: user.username,
+        token: 'f12ba140'
+      });
     }
 
     function authenticate() {

@@ -31,6 +31,7 @@ export class AuthenticationService {
     login(username, password) {
       return this.http.post<any>(environment.userAuthenticate, { username, password })
         .pipe(map(user => {
+          this.loginUserSubject.next(user);
           return user;
         }));
     }
@@ -38,12 +39,14 @@ export class AuthenticationService {
     register(username, password) {
       return this.http.post<any>(environment.userRegister, { username, password })
         .pipe(map(user => {
+          this.loginUserSubject.next(user);
           return user;
         }));
     }
 
     logout() {
       this.storageService.finishSessionStorage('user');
+      this.loginUserSubject.next(null);
       this.router.navigateByUrl('/login');
     }
 

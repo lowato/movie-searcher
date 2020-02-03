@@ -22,9 +22,10 @@ export class FavoritesService {
 
   public get getFavorites(): Movie[] {
     return this.favoritesSubject.value;
-}
+  }
 
   saveFavorite(movie: Movie) {
+    // TODO: Save favorites by user
     let favorites =  this.storageService.getLocalStorage(keyFavorites);
     favorites = !favorites ? [] : favorites;
     favorites.push(movie);
@@ -33,6 +34,7 @@ export class FavoritesService {
   }
 
   removeFavorite(imdbID: string) {
+    // TODO: Remove favorites by user
     let favorites: Movie[] =  this.storageService.getLocalStorage(keyFavorites);
     const key = Object.keys(favorites).find(key => imdbID === favorites[key].imdbID);
     delete favorites[key];

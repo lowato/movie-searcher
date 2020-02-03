@@ -5,7 +5,25 @@ import { AuthenticationService } from '../auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GuardService implements CanActivate {
+export class GuardAuthService implements CanActivate {
+
+  constructor(public authenticationService: AuthenticationService, private router: Router) {}
+
+  canActivate() {
+    const currentUser = this.authenticationService.loginUserValue;
+    if (currentUser) {
+      this.router.navigateByUrl('/searcher');
+      return false;
+    }
+    return true;
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GuardSearchService implements CanActivate {
 
   constructor(public authenticationService: AuthenticationService, private router: Router) {}
 
@@ -14,7 +32,6 @@ export class GuardService implements CanActivate {
     if (currentUser) {
       return true;
     }
-
     this.router.navigateByUrl('/login');
     return false;
   }

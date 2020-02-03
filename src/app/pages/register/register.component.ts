@@ -2,11 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
 import { Message } from 'primeng//api';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from '../../services/storage/storage.service';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -59,6 +58,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             this.loadingFull = false;
           },
           error => {
+            // TODO: Refactor (interceptor)
             const username = this.f.username.value;
             const msgTitle = error === 401 ? 'register.messages.error.title' : 'messages.error.title';
             const msgDescription = error === 401 ? this.translateService.instant('register.messages.error.description', {username}) : this.translateService.instant('messages.error.description');

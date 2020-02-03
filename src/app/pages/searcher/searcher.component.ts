@@ -5,7 +5,7 @@ import { Types } from '../../models/types.enum';
 import { QueryParams } from '../../models/query-params.model';
 import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
 import { ResponseBySearch } from '../../models/response-by-search.model';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-searcher',

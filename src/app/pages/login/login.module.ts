@@ -16,6 +16,8 @@ import { MessageModule } from 'primeng/message';
 import { TranslateService } from '@ngx-translate/core';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PipesModule } from '../../pipes/pipes.module';
+import { HeaderModule } from '../../components/header/header.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { PipesModule } from '../../pipes/pipes.module';
     MessagesModule,
     MessageModule,
     ProgressSpinnerModule,
-    PipesModule
+    PipesModule,
+    HeaderModule,
+    RouterModule
   ],
   providers: [
     TranslateService
