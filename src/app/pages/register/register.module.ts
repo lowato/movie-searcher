@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { RegisterLayoutComponent } from '../../layout/register-layout/register-layout.component';
-import { UpperCaseFirstLetterPipe } from '../../pipes/upper-case-first-letter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
@@ -15,14 +14,12 @@ import { HttpLoaderFactory } from '../login/login.module';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
-import { LoadingComponent } from '../../components/loading/loading.component';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    RegisterLayoutComponent,
-    UpperCaseFirstLetterPipe,
-    LoadingComponent
+    RegisterLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +38,8 @@ import { LoadingComponent } from '../../components/loading/loading.component';
     }),
     ProgressSpinnerModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    PipesModule
   ]
 })
 export class RegisterModule { }

@@ -1,16 +1,20 @@
-<ng-container *ngFor="let movie of listMovies.Search">
-  <div class="ui-g-12 box">
-    <div class="movie-details">
-      <div>
+<ng-container *ngIf="!detailImdbID; else detailMovie">
+  <div  class="content">
+    <div *ngFor="let movie of listMovies.Search">
+      <div class="ui-g-12 box">
         <button *ngIf="favorites.indexOf(movie.imdbID) > -1" pButton type="button" icon="pi pi-star" (click)="removeFavorite(movie.imdbID)"></button>
         <button *ngIf="favorites.indexOf(movie.imdbID) <= -1" pButton type="button" icon="pi pi-star-o" (click)="setFavorite(movie.imdbID)"></button>
-        <img src="{{ movie.Poster }}">
+        <img src="{{ movie.Poster }}" (click)="detailImdbID = movie.imdbID">
         <div class="ui-g">
-          <div class="ui-g-12">Vin: <b>{{ movie.Title }}</b></div>
-          <div class="ui-g-12">Year: <b>{{ movie.Year }}</b></div>
-          <div class="ui-g-12">Brand: <b>{{ movie.Type }}</b></div>
+          <div class="ui-g-12"><b>{{ movie.Title }}</b></div>
+          <div class="ui-g-12">Año: {{ movie.Year }}</div>
+          <div class="ui-g-12">Tipo: {{ movie.Type }}</div>
         </div>
       </div>
     </div>
   </div>
 </ng-container>
+
+<ng-template #detailMovie>
+  <app-detail-movie [detailImdbID]="detailImdbID"></app-detail-movie>
+</ng-template>

@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message, SelectItem } from 'primeng//api';
 import { Types } from '../../models/types.enum';
 import { QueryParams } from '../../models/query-params.model';
 import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
 import { ResponseBySearch } from '../../models/response-by-search.model';
+import { Subscription } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-searcher',
   templateUrl: './searcher.component.html',
   styleUrls: ['./searcher.component.scss']
 })
-export class SearcherComponent implements OnInit {
+export class SearcherComponent implements OnInit, OnDestroy {
 
   public searchForm: FormGroup;
   public loadingSearch = false;
@@ -20,6 +21,8 @@ export class SearcherComponent implements OnInit {
   public typesSearch: SelectItem[];
   public optionsSelected: SelectItem[];
   public listMovies: ResponseBySearch;
+
+  private subscriptions: Subscription[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,13 +64,14 @@ export class SearcherComponent implements OnInit {
 
     let queryParams: QueryParams = this.getQueryParams();
 
-    this.omdbApiService.search(queryParams)
-      .subscribe(
+    this.subscriptions.push(
+      this.omdbApiService.search(queryParams).subscribe(
         resp => {
           this.listMovies = resp;
           this.loadingSearch = false;
         }
-      );
+      )
+    )
   }
 
   private getQueryParams(): QueryParams {
@@ -104,5 +108,9 @@ export class SearcherComponent implements OnInit {
     }
 
     return queryParams;
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 }

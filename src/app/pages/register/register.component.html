@@ -9,7 +9,7 @@
       <div class="content">
         <div class="ui-float-label">
             <input id="float-input" formControlName="username" type="text" size="30" pInputText>
-            <label for="float-input">{{ 'register.username.title' | translate | upperCaseFirstLetter }}</label>
+            <label for="float-input">{{ 'register.username.title' | translate }}</label>
         </div>
         <div *ngIf="submitted && f.username.errors">
           <div *ngIf="f.username.errors.required" class="errorMessage">{{ 'register.username.required' | translate | upperCaseFirstLetter }}</div>
@@ -18,18 +18,18 @@
       <div class="content">
         <div  class="ui-float-label">
           <input type="password" formControlName="password" for="float-input-pwd" size="30" pInputText/>
-          <label for="float-input-pwd">{{ 'register.password.title' | translate | upperCaseFirstLetter }}</label>
+          <label for="float-input-pwd">{{ 'register.password.title' | translate }}</label>
         </div>
         <div *ngIf="submitted && f.password.errors">
           <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'register.password.required' | translate | upperCaseFirstLetter }}</div>
         </div>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'register.register' | translate | upperCaseFirstLetter }}</button>
-      <a routerLink="/register" class="btn btn-link">{{ 'login.login' | translate | upperCaseFirstLetter }}</a>
+      <a routerLink="/login" class="btn btn-link">{{ 'login.login' | translate }}</a>
     </form>
   </ng-container>
 </main>
 
 <ng-template #loading>
-  <app-loading></app-loading>
+  <p-progressSpinner></p-progressSpinner>
 </ng-template>

@@ -1,13 +1,13 @@
 {
   "login": {
-    "login": "login",
+    "login": "Login",
     "username": {
-      "title": "username",
+      "title": "Username",
       "required": "username is required"
     },
     "password": {
-      "title": "password",
-      "required": "password is required"
+      "title": "Password",
+      "required": "Password is required"
     },
     "messages": {
       "error": {
@@ -19,12 +19,12 @@
   "register": {
     "register": "Registrate",
     "username": {
-      "title": "username",
-      "required": "username is required"
+      "title": "Username",
+      "required": "Username is required"
     },
     "password": {
-      "title": "password",
-      "required": "password is required"
+      "title": "Password",
+      "required": "Password is required"
     },
     "messages": {
       "error": {

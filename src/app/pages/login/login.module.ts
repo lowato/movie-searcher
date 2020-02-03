@@ -11,18 +11,16 @@ import { ButtonModule } from 'primeng/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { UpperCaseFirstLetterPipe } from '../../pipes/upper-case-first-letter.pipe';
-import { LoadingComponent } from '../../components/loading/loading.component';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { TranslateService } from '@ngx-translate/core';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { PipesModule } from '../../pipes/pipes.module';
+
 @NgModule({
   declarations: [
     LoginLayoutComponent,
-    LoginComponent,
-    UpperCaseFirstLetterPipe,
-    LoadingComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -39,9 +37,10 @@ import { TranslateService } from '@ngx-translate/core';
         deps: [HttpClient]
       }
     }),
-    ProgressSpinnerModule,
     MessagesModule,
     MessageModule,
+    ProgressSpinnerModule,
+    PipesModule
   ],
   providers: [
     TranslateService
@@ -49,7 +48,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LoginModule {}
 
-// required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

@@ -1,3 +1,31 @@
-<p>
-  detail-movie works!
-</p>
+<ng-container *ngIf="!loadingSearch; else loading">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <div class="card">
+        <div class="card-horizontal">
+          <div class="img-square-wrapper">
+            <img class="card-img-top" src="{{ movie.Poster }}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <button *ngIf="favorites.indexOf(movie.imdbID) > -1" pButton type="button" icon="pi pi-star" (click)="removeFavorite(movie.imdbID)"></button>
+            <button *ngIf="favorites.indexOf(movie.imdbID) <= -1" pButton type="button" icon="pi pi-star-o" (click)="setFavorite(movie.imdbID)"></button>
+            <h4 class="card-title">{{ movie.Title }}</h4>
+            <p class="card-text">{{ movie.Plot }}</p>
+            <p class="card-text">Estreno: {{ movie.Released }}</p>
+            <p class="card-text">Duración: {{ movie.Runtime }}</p>
+            <p class="card-text">Genero: {{ movie.Genre }}</p>
+            <p class="card-text">Director: {{ movie.Director }}</p>
+            <p class="card-text">Actores: {{ movie.Actors }}</p>
+            <p class="card-text">Pais: {{ movie.Country }}</p>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-container>
+
+<ng-template #loading>
+  <p-progressSpinner></p-progressSpinner>
+</ng-template>

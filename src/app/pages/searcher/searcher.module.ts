@@ -15,9 +15,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ListboxModule } from 'primeng/listbox';
 import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive';
 import { ListMoviesComponent } from '../listMovies/list-movies.component';
-import { LoadingComponent } from '../../components/loading/loading.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FavoritesService } from '../../services/favorites/favorites.service';
+import { DetailMovieComponent } from '../detailMovie/detail-movie.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { FavoritesService } from '../../services/favorites/favorites.service';
     HeaderComponent,
     OnlyDigiDirective,
     ListMoviesComponent,
-    LoadingComponent
+    DetailMovieComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +51,6 @@ import { FavoritesService } from '../../services/favorites/favorites.service';
 })
 export class SearcherModule { }
 
-// required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }

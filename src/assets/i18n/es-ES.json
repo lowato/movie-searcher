@@ -1,13 +1,13 @@
 {
   "login": {
-    "login": "iniciar sesión",
+    "login": "Iniciar sesión",
     "username": {
-      "title": "nombre de usuario",
-      "required": "el nombre de usuario es obligatorio"
+      "title": "Nombre de usuario",
+      "required": "El nombre de usuario es obligatorio"
     },
     "password": {
-      "title": "contraseña",
-      "required": "la contraseña es obligatoria"
+      "title": "Contraseña",
+      "required": "La contraseña es obligatoria"
     },
     "messages": {
       "error": {
@@ -19,12 +19,12 @@
   "register": {
     "register": "Registrate",
     "username": {
-      "title": "nombre de usuario",
-      "required": "el nombre de usuario es obligatorio"
+      "title": "Nombre de usuario",
+      "required": "El nombre de usuario es obligatorio"
     },
     "password": {
-      "title": "contraseña",
-      "required": "la contraseña es obligatoria"
+      "title": "Contraseña",
+      "required": "La contraseña es obligatoria"
     },
     "messages": {
       "error": {

@@ -11,10 +11,10 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { RouterModule } from '../../node_modules/@angular/router';
 import { fakeBackendProvider } from './services/interceptor/fake-backend-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt-interceptor.service';
-
 @NgModule({
   declarations: [
     AppComponent
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,7 @@ import { JwtInterceptor } from './services/interceptor/jwt-interceptor.service';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [
     fakeBackendProvider,
@@ -38,7 +38,6 @@ import { JwtInterceptor } from './services/interceptor/jwt-interceptor.service';
 })
 export class AppModule { }
 
-// required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
