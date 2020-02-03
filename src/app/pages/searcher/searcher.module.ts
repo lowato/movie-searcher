@@ -19,6 +19,7 @@ import { FavoritesService } from '../../services/favorites/favorites.service';
 import { DetailMovieComponent } from '../../components/detailMovie/detail-movie.component';
 import { HeaderModule } from '../../components/header/header.module';
 import { RouterModule } from '@angular/router';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     SearcherLayoutComponent,
     OnlyDigiDirective,
     ListMoviesComponent,
-    DetailMovieComponent
+    DetailMovieComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
