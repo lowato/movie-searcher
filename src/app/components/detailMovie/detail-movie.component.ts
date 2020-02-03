@@ -49,11 +49,11 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
     )
   }
 
-  public setFavorite(imdbId: string) {
+  public setFavorite(imdbId: string): void {
     this.favoritesService.saveFavorite(this.customMovie(imdbId));
   }
 
-  public removeFavorite(imdbId: string) {
+  public removeFavorite(imdbId: string): void {
     this.favoritesService.removeFavorite(imdbId);
   }
 

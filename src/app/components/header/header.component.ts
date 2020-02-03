@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/auth/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -15,11 +16,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  isLogin() {
+  public isLogin(): User {
     return this.authenticationService.loginUserValue;
   }
 
-  logout() {
+  public logout(): void {
     this.authenticationService.logout();
   }
 

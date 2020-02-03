@@ -54,7 +54,7 @@ export class SearcherComponent implements OnInit, OnDestroy {
 
   get f() { return this.searchForm.controls; }
 
-  onSubmit() {
+  onSubmit(): void {
 
     if (this.searchForm.invalid) {
         return;

@@ -28,23 +28,23 @@ export class AuthenticationService {
       return this.loginUserSubject.value;
     }
 
-    login(username, password) {
-      return this.http.post<any>(environment.userAuthenticate, { username, password })
+    public login(username, password): Observable<User> {
+      return this.http.post<User>(environment.userAuthenticate, { username, password })
         .pipe(map(user => {
           this.loginUserSubject.next(user);
           return user;
         }));
     }
 
-    register(username, password) {
-      return this.http.post<any>(environment.userRegister, { username, password })
+    public register(username, password): Observable<User> {
+      return this.http.post<User>(environment.userRegister, { username, password })
         .pipe(map(user => {
           this.loginUserSubject.next(user);
           return user;
         }));
     }
 
-    logout() {
+    public logout(): void {
       this.storageService.finishSessionStorage('user');
       this.loginUserSubject.next(null);
       this.router.navigateByUrl('/login');

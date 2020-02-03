@@ -9,7 +9,7 @@ export class GuardAuthService implements CanActivate {
 
   constructor(public authenticationService: AuthenticationService, private router: Router) {}
 
-  canActivate() {
+  canActivate(): boolean {
     const currentUser = this.authenticationService.loginUserValue;
     if (currentUser) {
       this.router.navigateByUrl('/searcher');
@@ -27,7 +27,7 @@ export class GuardSearchService implements CanActivate {
 
   constructor(public authenticationService: AuthenticationService, private router: Router) {}
 
-  canActivate() {
+  canActivate(): boolean {
     const currentUser = this.authenticationService.loginUserValue;
     if (currentUser) {
       return true;

@@ -16,14 +16,14 @@ export class OmdbApiService {
   ) { }
 
   search(queryParams): Observable<ResponseBySearch> {
-    return this.http.get<any>(environment.omdbApi, {params: queryParams})
+    return this.http.get<ResponseBySearch>(environment.omdbApi, {params: queryParams})
       .pipe(map(data => {
         return data;
       }));
   }
 
   searchByIdOrType(queryParams): Observable<ResponseByIDOrType> {
-    return this.http.get<any>(environment.omdbApi, {params: queryParams})
+    return this.http.get<ResponseByIDOrType>(environment.omdbApi, {params: queryParams})
       .pipe(map(data => {
         return data;
       }));
