@@ -11,13 +11,13 @@ const keyFavorites = 'favorites';
 export class FavoritesService {
 
   private favoritesSubject: BehaviorSubject<Movie[]>;
-  public favorites: Observable<Movie[]>;
+  public favorites$: Observable<Movie[]>;
 
   constructor(
     private storageService: StorageService
   ) {
     this.favoritesSubject = new BehaviorSubject<Movie[]>(this.storageService.getLocalStorage(keyFavorites));
-    this.favorites = this.favoritesSubject.asObservable();
+    this.favorites$ = this.favoritesSubject.asObservable();
   }
 
   public get getFavorites(): Movie[] {
