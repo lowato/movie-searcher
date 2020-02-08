@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../services/auth/auth.service';
-import { Router } from '@angular/router';
-import { Message } from 'primeng//api';
-import { TranslateService } from '@ngx-translate/core';
-import { StorageService } from '../../services/storage/storage.service';
 import { Subscription } from 'rxjs';
+import { Message } from 'primeng//api';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { StorageService } from '../../services/storage/storage.service';
+import { AuthenticationService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',

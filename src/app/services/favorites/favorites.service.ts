@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from '../storage/storage.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { StorageService } from '../storage/storage.service';
 import { Movie } from '../../models/response-by-search.model';
 
 const keyFavorites = 'favorites';

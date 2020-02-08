@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { ResponseBySearch, Movie } from '../../models/response-by-search.model';
-import { FavoritesService } from '../../services/favorites/favorites.service';
 import { Subscription } from 'rxjs';
+import { FavoritesService } from '../../services/favorites/favorites.service';
+import { ResponseBySearch, Movie } from '../../models/response-by-search.model';
 
 @Component({
   selector: 'app-list-movies',
