@@ -1,11 +1,15 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
+
+import { Movie } from '../../models/response-by-search.model';
 import { QueryParamsById } from '../../models/query-params.model';
 import { ResponseByIDOrType } from '../../models/response-by-id-or-type.model';
+
+import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
 import { FavoritesService } from '../../services/favorites/favorites.service';
-import { Movie } from '../../models/response-by-search.model';
-import { take } from 'rxjs/operators';
+
 import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-detail-movie',
