@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
 export class AuthenticationService {
 
     private loginUserSubject: BehaviorSubject<User>;
-    public loginUser: Observable<User>;
+    public loginUser$: Observable<User>;
 
     constructor(
       private router: Router,
@@ -21,7 +21,7 @@ export class AuthenticationService {
       private _storageService: StorageService,
     ) {
       this.loginUserSubject = new BehaviorSubject<User>(this._storageService.getSessionStorage('user'));
-      this.loginUser = this.loginUserSubject.asObservable();
+      this.loginUser$ = this.loginUserSubject.asObservable();
     }
 
     public get loginUserValue(): User {
