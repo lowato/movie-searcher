@@ -23,8 +23,8 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private omdbApiService: OmdbApiService,
-    private favoritesService: FavoritesService
+    private _omdbApiService: OmdbApiService,
+    private _favoritesService: FavoritesService
   ) { }
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
     };
 
     this.subscriptions.push(
-      this.omdbApiService.searchByIdOrType(queryParams).pipe(take(1)).subscribe(
+      this._omdbApiService.searchByIdOrType(queryParams).pipe(take(1)).subscribe(
         resp => {
           this.movie = resp;
           this.loadingSearch = false;
@@ -41,7 +41,7 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
       )
     )
 
-    this.subscriptions.push(this.favoritesService.favorites.subscribe(
+    this.subscriptions.push(this._favoritesService.favorites.subscribe(
       fav => {
           this.favorites = Object.keys(fav).map(key => fav[key]['imdbID'])
         }
@@ -50,11 +50,11 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
   }
 
   public setFavorite(imdbId: string): void {
-    this.favoritesService.saveFavorite(this.customMovie(imdbId));
+    this._favoritesService.saveFavorite(this.customMovie(imdbId));
   }
 
   public removeFavorite(imdbId: string): void {
-    this.favoritesService.removeFavorite(imdbId);
+    this._favoritesService.removeFavorite(imdbId);
   }
 
   private customMovie(imdbId: string): Movie {

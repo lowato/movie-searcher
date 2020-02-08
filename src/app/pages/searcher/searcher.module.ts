@@ -9,7 +9,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
-import { ReactiveFormsModule } from '../../../../node_modules/@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ListboxModule } from 'primeng/listbox';
 import { OnlyDigiDirective } from '../../directives/onlyDigi/only-digi.directive';

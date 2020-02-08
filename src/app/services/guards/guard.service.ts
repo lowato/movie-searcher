@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '../../../../node_modules/@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../auth/auth.service';
 
 @Injectable({
@@ -7,10 +7,13 @@ import { AuthenticationService } from '../auth/auth.service';
 })
 export class GuardAuthService implements CanActivate {
 
-  constructor(public authenticationService: AuthenticationService, private router: Router) {}
+  constructor(
+    private router: Router,
+    public _authenticationService: AuthenticationService,
+  ) {}
 
   canActivate(): boolean {
-    const currentUser = this.authenticationService.loginUserValue;
+    const currentUser = this._authenticationService.loginUserValue;
     if (currentUser) {
       this.router.navigateByUrl('/searcher');
       return false;

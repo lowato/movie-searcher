@@ -10,18 +10,18 @@ import { User } from '../../models/user.model';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private authenticationService: AuthenticationService
+    private _authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
   }
 
   public isLogin(): User {
-    return this.authenticationService.loginUserValue;
+    return this._authenticationService.loginUserValue;
   }
 
   public logout(): void {
-    this.authenticationService.logout();
+    this._authenticationService.logout();
   }
 
 }

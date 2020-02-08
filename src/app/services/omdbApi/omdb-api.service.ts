@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { ResponseBySearch } from '../../models/response-by-search.model';
-import { Observable } from '../../../../node_modules/rxjs';
 import { ResponseByIDOrType } from '../../models/response-by-id-or-type.model';
 
 @Injectable({

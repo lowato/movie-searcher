@@ -26,7 +26,7 @@ export class SearcherComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private omdbApiService: OmdbApiService
+    private _omdbApiService: OmdbApiService
   ) { }
 
   ngOnInit() {
@@ -65,7 +65,7 @@ export class SearcherComponent implements OnInit, OnDestroy {
     let queryParams: QueryParams = this.getQueryParams();
 
     this.subscriptions.push(
-      this.omdbApiService.search(queryParams).subscribe(
+      this._omdbApiService.search(queryParams).subscribe(
         resp => {
           this.listMovies = resp;
           this.loadingSearch = false;
