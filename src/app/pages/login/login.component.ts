@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
     private router: Router,
-    private translateService: TranslateService,
-    private storageService: StorageService
+    private formBuilder: FormBuilder,
+    private _storageService: StorageService,
+    private _translateService: TranslateService,
+    private _authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.loadingFull = true;
     this.subscriptions.push(
-      this.authenticationService.login(this.f.username.value, this.f.password.value)
+      this._authenticationService.login(this.f.username.value, this.f.password.value)
         .subscribe(
           user => {
-            this.storageService.setSessionStorage('user', user);
+            this._storageService.setSessionStorage('user', user);
             this.router.navigateByUrl('/searcher');
             this.loadingFull = false;
           },
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             const msgTitle = error === 401 ? 'login.messages.error.title' : 'messages.error.title';
             const msgDescription = error === 401 ? 'login.messages.error.description' : 'messages.error.description';
             this.message = [];
-            this.message.push({severity:'error', summary: this.translateService.instant(msgTitle), detail: this.translateService.instant(msgDescription)});
+            this.message.push({severity:'error', summary: this._translateService.instant(msgTitle), detail: this._translateService.instant(msgDescription)});
             this.loadingFull = false;
           }
         )

@@ -16,11 +16,11 @@ export class AuthenticationService {
     public loginUser: Observable<User>;
 
     constructor(
+      private router: Router,
       private http: HttpClient,
-      private storageService: StorageService,
-      private router: Router
+      private _storageService: StorageService,
     ) {
-      this.loginUserSubject = new BehaviorSubject<User>(this.storageService.getSessionStorage('user'));
+      this.loginUserSubject = new BehaviorSubject<User>(this._storageService.getSessionStorage('user'));
       this.loginUser = this.loginUserSubject.asObservable();
     }
 
@@ -45,7 +45,7 @@ export class AuthenticationService {
     }
 
     public logout(): void {
-      this.storageService.finishSessionStorage('user');
+      this._storageService.finishSessionStorage('user');
       this.loginUserSubject.next(null);
       this.router.navigateByUrl('/login');
     }

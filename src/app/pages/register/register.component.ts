@@ -22,11 +22,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
     private router: Router,
-    private translateService: TranslateService,
-    private storageService: StorageService
+    private formBuilder: FormBuilder,
+    private _storageService: StorageService,
+    private _translateService: TranslateService,
+    private _authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
@@ -50,10 +50,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.loadingFull = true;
 
     this.subscriptions.push(
-      this.authenticationService.register(this.f.username.value, this.f.password.value)
+      this._authenticationService.register(this.f.username.value, this.f.password.value)
         .subscribe(
           user => {
-            this.storageService.setSessionStorage('user', user);
+            this._storageService.setSessionStorage('user', user);
             this.router.navigateByUrl('/searcher');
             this.loadingFull = false;
           },
@@ -61,9 +61,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
             // TODO: Refactor (interceptor)
             const username = this.f.username.value;
             const msgTitle = error === 401 ? 'register.messages.error.title' : 'messages.error.title';
-            const msgDescription = error === 401 ? this.translateService.instant('register.messages.error.description', {username}) : this.translateService.instant('messages.error.description');
+            const msgDescription = error === 401 ? this._translateService.instant('register.messages.error.description', {username}) : this._translateService.instant('messages.error.description');
             this.message = [];
-            this.message.push({severity:'error', summary: this.translateService.instant(msgTitle), detail: msgDescription});
+            this.message.push({severity:'error', summary: this._translateService.instant(msgTitle), detail: msgDescription});
             this.loadingFull = false;
           }
         )

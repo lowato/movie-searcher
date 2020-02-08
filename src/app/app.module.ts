@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '../../node_modules/@angular/router';
+import { RouterModule } from '@angular/router';
 import { fakeBackendProvider } from './services/interceptor/fake-backend-auth.service';
 import { JwtInterceptor } from './services/interceptor/jwt-interceptor.service';
 @NgModule({
