@@ -12,17 +12,17 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
 
   @Input() listMovies: ResponseBySearch;
   public favorites: Array<string>;
-  public detailImdbID: string = null;
+  public detailImdbID: string;
 
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private favoritesService: FavoritesService
+    private _favoritesService: FavoritesService
   ) { }
 
   ngOnInit() {
     this.subscriptions.push(
-      this.favoritesService.favorites.subscribe(
+      this._favoritesService.favorites.subscribe(
         fav => {
           this.favorites = Object.keys(fav).map(key => fav[key]['imdbID'])
         }
@@ -31,11 +31,11 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
   }
 
   public setFavorite(imdbId: string) {
-    this.favoritesService.saveFavorite(this.getMovieByImdbId(imdbId));
+    this._favoritesService.saveFavorite(this.getMovieByImdbId(imdbId));
   }
 
   public removeFavorite(imdbId: string) {
-    this.favoritesService.removeFavorite(imdbId);
+    this._favoritesService.removeFavorite(imdbId);
   }
 
   private getMovieByImdbId(imdbId: string): Movie {
