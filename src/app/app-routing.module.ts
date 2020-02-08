@@ -23,7 +23,9 @@ const routes: Routes = [
     path: 'register',
     canActivate: [GuardAuthService],
     loadChildren: () => RegisterModule
-  }
+  },
+  //TODO: Create component PageNotFoundComponent
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Message, SelectItem } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Message, SelectItem } from 'primeng//api';
+
 import { Types } from '../../models/types.enum';
 import { QueryParams } from '../../models/query-params.model';
-import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
 import { ResponseBySearch } from '../../models/response-by-search.model';
-import { Subscription } from 'rxjs';
+
+import { OmdbApiService } from '../../services/omdbApi/omdb-api.service';
 
 @Component({
   selector: 'app-searcher',

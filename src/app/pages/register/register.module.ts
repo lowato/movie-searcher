@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegisterRoutingModule } from './register-routing.module';
-import { RegisterComponent } from './register.component';
-import { RegisterLayoutComponent } from '../../layout/register-layout/register-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
+import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { MessageModule } from 'primeng/message';
+import { PasswordModule } from 'primeng/password';
+import { MessagesModule } from 'primeng/messages';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register.component';
 import { HttpLoaderFactory } from '../login/login.module';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { MessagesModule } from 'primeng/messages';
-import { MessageModule } from 'primeng/message';
-import { PipesModule } from '../../pipes/pipes.module';
+import { RegisterRoutingModule } from './register-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from '../../components/header/header.module';
-import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+import { PipesModule } from '../../pipes/pipes.module';
+import { RegisterLayoutComponent } from '../../layout/register-layout/register-layout.component';
 
 @NgModule({
   declarations: [
