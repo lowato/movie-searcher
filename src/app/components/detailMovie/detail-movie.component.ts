@@ -41,7 +41,7 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
       )
     )
 
-    this.subscriptions.push(this._favoritesService.favorites.subscribe(
+    this.subscriptions.push(this._favoritesService.favorites$.subscribe(
       fav => {
           this.favorites = Object.keys(fav).map(key => fav[key]['imdbID'])
         }

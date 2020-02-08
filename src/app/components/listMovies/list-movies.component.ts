@@ -22,7 +22,7 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.push(
-      this._favoritesService.favorites.subscribe(
+      this._favoritesService.favorites$.subscribe(
         fav => {
           this.favorites = Object.keys(fav).map(key => fav[key]['imdbID'])
         }
