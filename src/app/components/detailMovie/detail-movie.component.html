@@ -8,9 +8,9 @@
             <img class="card-img-top" src="{{ movie.Poster }}" alt="Card image cap">
           </div>
           <div class="card-body">
-            <button *ngIf="favorites.indexOf(movie.imdbID) > -1" pButton type="button" icon="pi pi-star" (click)="removeFavorite(movie.imdbID)"></button>
-            <button *ngIf="favorites.indexOf(movie.imdbID) <= -1" pButton type="button" icon="pi pi-star-o" (click)="setFavorite(movie.imdbID)"></button>
-            <h4 class="card-title">{{ movie.Title }}</h4>
+            <button class="d-inline mr-3 mb-3" *ngIf="favorites.indexOf(movie.imdbID) > -1" pButton type="button" icon="pi pi-star" (click)="removeFavorite(movie.imdbID)"></button>
+            <button class="d-inline mr-3 mb-3" *ngIf="favorites.indexOf(movie.imdbID) <= -1" pButton type="button" icon="pi pi-star-o" (click)="setFavorite(movie.imdbID)"></button>
+            <h4 class="d-inline card-title">{{ movie.Title }}</h4>
             <p class="card-text">{{ movie.Plot }}</p>
             <p class="card-text">Estreno: {{ movie.Released }}</p>
             <p class="card-text">Duración: {{ movie.Runtime }}</p>
@@ -27,5 +27,7 @@
 </ng-container>
 
 <ng-template #loading>
-  <p-progressSpinner></p-progressSpinner>
+  <div class="content-snipper">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
 </ng-template>
