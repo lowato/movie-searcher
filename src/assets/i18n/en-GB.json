@@ -26,6 +26,14 @@
       "title": "Password",
       "required": "Password is required"
     },
+    "confirmPassword": {
+      "title": "Confirm Password",
+      "required": "Password is required"
+    },
+    "matchPassword": {
+      "title": "Contraseña",
+      "description": "Password do not match"
+    },
     "messages": {
       "error": {
         "title": "Error:",

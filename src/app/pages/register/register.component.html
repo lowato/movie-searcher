@@ -24,8 +24,19 @@
           <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'register.password.required' | translate | upperCaseFirstLetter }}</div>
         </div>
       </div>
+      <div class="content">
+        <div  class="ui-float-label">
+          <input type="password" formControlName="confirmPassword" for="float-input-pwd" size="30" pInputText/>
+          <label for="float-input-pwd">{{ 'register.confirmPassword.title' | translate }}</label>
+        </div>
+        <div *ngIf="submitted && f.confirmPassword.errors">
+          <div *ngIf="f.confirmPassword.errors.required" class="errorMessage">{{ 'register.confirmPassword.required' | translate | upperCaseFirstLetter }}</div>
+        </div>
+      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'register.register' | translate | upperCaseFirstLetter }}</button>
-      <a routerLink="/login" class="btn btn-link">{{ 'login.login' | translate }}</a>
+      <div class="text-center">
+        <a routerLink="/login" class="btn btn-link">{{ 'login.login' | translate }}</a>
+      </div>
     </form>
   </ng-container>
 </main>
