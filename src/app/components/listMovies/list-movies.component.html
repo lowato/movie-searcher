@@ -10,6 +10,8 @@
             <p class="card-text">Tipo: {{ movie.Type }}</p>
           </div>
           <div class="card-footer">
+            <button class="mr-3" *ngIf="favorites.indexOf(movie.imdbID) > -1" pButton type="button" icon="pi pi-star" (click)="removeFavorite(movie.imdbID)"></button>
+            <button class="mr-3" *ngIf="favorites.indexOf(movie.imdbID) <= -1" pButton type="button" icon="pi pi-star-o" (click)="setFavorite(movie.imdbID)"></button>
             <small class="text-muted">IMDB ID: {{ movie.imdbID }}</small>
           </div>
         </div>
