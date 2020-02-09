@@ -1,12 +1,7 @@
 :host {
 
-  .main {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .content-errorMessage {
+    margin: 50px;
   }
 
   .form-register {
@@ -15,22 +10,16 @@
     padding: 15px;
     margin: auto;
 
-    .content {
-      margin: 25px 0;
+    input {
+      width: 100%;
+    }
 
-      input {
-        width: 100%;
-      }
-
-      .errorMessage {
-        color: red;
-      }
-
+    .errorMessage {
+      color: red;
     }
   }
-  p-progressSpinner {
-    display: block;
-    margin: 0px auto;
-  }
 
+  .content-snipper {
+    text-align: center;
+  }
 }

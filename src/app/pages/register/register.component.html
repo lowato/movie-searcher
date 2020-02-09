@@ -1,33 +1,36 @@
-<main class="main">
+<main>
   <ng-container *ngIf="!loadingFull; else loading">
-    <form [formGroup]="registerForm" class="form-register" (ngSubmit)="onSubmit()">
+    <div class="content-errorMessage">
       <p-messages [(value)]="message"></p-messages>
+    </div>
+    <form [formGroup]="registerForm" class="form-register" (ngSubmit)="onSubmit()">
       <div class="text-center">
         <img class="rounded" src="assets/images/logo.png" alt="" width="200">
       </div>
       <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'register.register' | translate | upperCaseFirstLetter }}</h1>
-      <div class="content">
+
+      <div class="form-group">
         <div class="ui-float-label">
-            <input id="float-input" formControlName="username" type="text" size="30" pInputText>
-            <label for="float-input">{{ 'register.username.title' | translate }}</label>
+            <input id="username" formControlName="username" type="text" pInputText>
+            <label for="username">{{ 'register.username.title' | translate }}</label>
         </div>
         <div *ngIf="submitted && f.username.errors">
           <div *ngIf="f.username.errors.required" class="errorMessage">{{ 'register.username.required' | translate | upperCaseFirstLetter }}</div>
         </div>
       </div>
-      <div class="content">
+      <div class="form-group">
         <div  class="ui-float-label">
-          <input type="password" formControlName="password" for="float-input-pwd" size="30" pInputText/>
-          <label for="float-input-pwd">{{ 'register.password.title' | translate }}</label>
+          <input id="password" type="password" formControlName="password" pInputText/>
+          <label for="password">{{ 'register.password.title' | translate }}</label>
         </div>
         <div *ngIf="submitted && f.password.errors">
           <div *ngIf="f.password.errors.required" class="errorMessage">{{ 'register.password.required' | translate | upperCaseFirstLetter }}</div>
         </div>
       </div>
-      <div class="content">
+      <div class="form-group">
         <div  class="ui-float-label">
-          <input type="password" formControlName="confirmPassword" for="float-input-pwd" size="30" pInputText/>
-          <label for="float-input-pwd">{{ 'register.confirmPassword.title' | translate }}</label>
+          <input id="confirmPassword" type="password" formControlName="confirmPassword" pInputText/>
+          <label for="confirmPassword">{{ 'register.confirmPassword.title' | translate }}</label>
         </div>
         <div *ngIf="submitted && f.confirmPassword.errors">
           <div *ngIf="f.confirmPassword.errors.required" class="errorMessage">{{ 'register.confirmPassword.required' | translate | upperCaseFirstLetter }}</div>
@@ -42,5 +45,7 @@
 </main>
 
 <ng-template #loading>
-  <p-progressSpinner></p-progressSpinner>
+  <div class="content-snipper">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
 </ng-template>
