@@ -70,6 +70,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             const msgDescription = error === 401 ? this._translateService.instant('register.messages.error.description', {username}) : this._translateService.instant('messages.error.description');
             this.message = [];
             this.message.push({severity:'error', detail: msgDescription});
+
             this.loadingFull = false;
           }
         )
