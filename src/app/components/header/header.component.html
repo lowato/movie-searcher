@@ -1,13 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">MovieSearcher</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="/searcher">MovieSearcher</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav pointer">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link"  routerLink="/searcher" *ngIf="isLogin()">{{ 'searcher' | translate }}</a>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarText" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/login" *ngIf="!isLogin()">{{ 'login.login' | translate }}</a>
       </li>
@@ -15,12 +12,12 @@
         <a class="nav-link" routerLink="/register" *ngIf="!isLogin()">{{ 'register.register' | translate }}</a>
       </li>
     </ul>
-  </div>
-  <div>
-    <ul class="navbar-nav pointer" *ngIf="isLogin()">
-        <li class="nav-item">
-          <a class="nav-link" (click)="logout()">{{ 'logout' | translate }}</a>
-        </li>
-    </ul>
+    <div>
+      <ul class="navbar-nav pointer" *ngIf="isLogin()">
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">{{ 'logout' | translate }}</a>
+          </li>
+      </ul>
+    </div>
   </div>
 </nav>
