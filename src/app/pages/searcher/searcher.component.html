@@ -1,32 +1,36 @@
-<form [formGroup]="searchForm" class="form-sign-in" (ngSubmit)="onSubmit()">
-  <div class="form-row">
-    <div class="col-md-6 mb-2">
-      <label for="typesSearch">Buscar por:</label>
-      <p-selectButton class="input" id="typesSearch" formControlName="typesSearch" [options]="typesSearch"></p-selectButton>
+<main>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="col-form-label" for="typesSearch">Buscar por:</label>
+        <p-selectButton class="input" id="typesSearch" formControlName="typesSearch" [options]="typesSearch"></p-selectButton>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="col-form-label" for="inputSearch">Buscar:</label>
+        <input class="input form-control" id="inputSearch" formControlName="inputSearch" type="text" size="30" pInputText>
+      </div>
     </div>
-    <div class="col-md-6 mb-2">
-      <label for="inputSearch">Buscar:</label>
-      <input class="input" id="inputSearch" formControlName="inputSearch" type="text" size="30" pInputText>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="col-form-label" for="selectedType">Tipo:</label>
+        <p-selectButton  class="input" id="selectedType" [options]="optionsSelected" formControlName="selectedType"></p-selectButton>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="col-form-label" for="year">Año:</label>
+        <input class="input form-control" id="year" formControlName="year" appOnlyDigi type="text" size="30" maxlength="4" pInputText>
+      </div>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-2">
-      <label for="selectedType">Tipo:</label>
-      <p-selectButton  class="input" id="selectedType" [options]="optionsSelected" formControlName="selectedType"></p-selectButton>
-    </div>
-    <div class="col-md-6 mb-2">
-      <label for="year">Año:</label>
-      <input class="input" id="year" formControlName="year" appOnlyDigi type="text" size="30" maxlength="4" pInputText>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Buscar</button>
-</form>
+    <button class="btn btn-primary" type="submit">Buscar</button>
+  </form>
+</main>
 
 <ng-container *ngIf="!loadingSearch; else loading">
   <app-list-movies *ngIf="listMovies" [listMovies]="listMovies"></app-list-movies>
 </ng-container>
 
 <ng-template #loading>
-  <p-progressSpinner></p-progressSpinner>
+  <div class="content-snipper">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
 </ng-template>
 
