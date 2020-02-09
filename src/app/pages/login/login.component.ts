@@ -58,10 +58,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           },
           error => {
             // TODO: Refactor (interceptor)
-            const msgTitle = error === 401 ? 'login.messages.error.title' : 'messages.error.title';
             const msgDescription = error === 401 ? 'login.messages.error.description' : 'messages.error.description';
             this.message = [];
-            this.message.push({severity:'error', summary: this._translateService.instant(msgTitle), detail: this._translateService.instant(msgDescription)});
+            this.message.push({severity:'error', detail: this._translateService.instant(msgDescription)});
             this.loadingFull = false;
           }
         )

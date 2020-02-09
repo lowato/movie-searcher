@@ -9,40 +9,26 @@
     padding-bottom: 40px;
   }
 
+  .content-errorMessage {
+    margin: 50px;
+  }
+
   .form-sign-in {
     width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;
 
-    .content {
-      margin: 25px 0;
+    input {
+      width: 100%;
+    }
 
-      input {
-        width: 100%;
-      }
-
-      input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
-      input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-
-      .errorMessage {
-        color: red;
-      }
-
+    .errorMessage {
+      color: red;
     }
   }
 
-  p-progressSpinner {
-    display: block;
-    margin: 0px auto;
+  .content-snipper {
+    text-align: center;
   }
 }
