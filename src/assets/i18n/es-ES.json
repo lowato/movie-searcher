@@ -26,6 +26,14 @@
       "title": "Contraseña",
       "required": "La contraseña es obligatoria"
     },
+    "confirmPassword": {
+      "title": "Confirmar contraseña",
+      "required": "La contraseña es obligatoria"
+    },
+    "matchPassword": {
+      "title": "Contraseña",
+      "description": "La contraseña no coincide"
+    },
     "messages": {
       "error": {
         "title": "Error:",
