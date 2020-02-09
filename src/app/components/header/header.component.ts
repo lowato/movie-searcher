@@ -11,11 +11,17 @@ import { AuthenticationService } from '../../services/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public navbarOpen = false;
+
   constructor(
     private _authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
+  }
+
+  public toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
   public isLogin(): User {
