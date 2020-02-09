@@ -1,0 +1,52 @@
+{
+  "login": {
+    "login": "Login",
+    "username": {
+      "title": "Username",
+      "required": "username is required"
+    },
+    "password": {
+      "title": "Password",
+      "required": "Password is required"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "The username or password is incorrect"
+      }
+    }
+  },
+  "register": {
+    "register": "Registrate",
+    "username": {
+      "title": "Username",
+      "required": "Username is required"
+    },
+    "password": {
+      "title": "Password",
+      "required": "Password is required"
+    },
+    "confirmPassword": {
+      "title": "Confirm Password",
+      "required": "Password is required"
+    },
+    "matchPassword": {
+      "title": "Contraseña",
+      "description": "Password do not match"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "'Username {{ username }} is already taken'"
+      }
+    }
+  },
+  "logout": "Logout",
+  "messages": {
+    "error": {
+      "title": "Error:",
+      "description": "An error has occurred. Try it again later"
+    }
+  },
+  "searcher": "Searcher"
+}

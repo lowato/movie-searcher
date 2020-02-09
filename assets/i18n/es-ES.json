@@ -1,0 +1,52 @@
+{
+  "login": {
+    "login": "Iniciar sesión",
+    "username": {
+      "title": "Nombre de usuario",
+      "required": "El nombre de usuario es obligatorio"
+    },
+    "password": {
+      "title": "Contraseña",
+      "required": "La contraseña es obligatoria"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "El usuario o la contraseña son incorrectos"
+      }
+    }
+  },
+  "register": {
+    "register": "Registrate",
+    "username": {
+      "title": "Nombre de usuario",
+      "required": "El nombre de usuario es obligatorio"
+    },
+    "password": {
+      "title": "Contraseña",
+      "required": "La contraseña es obligatoria"
+    },
+    "confirmPassword": {
+      "title": "Confirmar contraseña",
+      "required": "La contraseña es obligatoria"
+    },
+    "matchPassword": {
+      "title": "Contraseña",
+      "description": "La contraseña no coincide"
+    },
+    "messages": {
+      "error": {
+        "title": "Error:",
+        "description": "El nombre de usuario {{ username }} ya está en uso"
+      }
+    }
+  },
+  "logout": "Salir",
+  "messages": {
+    "error": {
+      "title": "Error:",
+      "description": "Se ha producido un error. Intentelo de nuevo más tarde"
+    }
+  },
+  "searcher": "Buscador"
+}
